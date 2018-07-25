@@ -4,36 +4,47 @@ email: mis_ding@sina.com
 description: > # this means to ignore newlines until "baseurl:"
   小雅的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://yyyyama.github.io/" # the base hostname & protocol for your site
+url: https://yyyyama.github.io/ # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
-author: Xiao ya
-
+author: Xiao Ya
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
 filter: 'category'
 recent_num: 20
 
-
 # Social account
-# twitter:  username
-# weibo:    ID
-# github:   username
-# codepen:  username
-# dribbble: username
+twitter: 
+weibo: 
+github: yyyyama
+instagram: 
+linkedin: 
 
+# avatar and Favicon
+avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
+favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
-# Comment
-# disqus_shortname: discussion_shortname
+# disqus config
+disqus:
+  shortname: xiaoya-zh
 
-
-# Google Analytics
-# google_analytics: tracking_ID
-
+# google analytics config
+ga:
+  id: 
+  url: 
 
 # Build settings
+permalink: /:year/:month/:day/:title.html
 markdown: kramdown
+highlighter: rouge
+mathjax: disabled
 sass:
   style: compressed
+
+# Jekyll Plugin
+# https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/
 gems:
   - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
