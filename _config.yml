@@ -22,8 +22,8 @@ instagram:
 linkedin: 
 
 # avatar and Favicon
-avatar: 
-favicon: 
+avatar: https://github.com/yyyyama/yyyyama.github.io/tree/master/assets/img/avatar.jpg
+favicon: https://github.com/yyyyama/yyyyama.github.io/tree/master/assets/img/site-favicon.jpg
 
 # disqus config
 disqus:
@@ -32,7 +32,7 @@ disqus:
 # google analytics config
 ga:
   id: UA-54767140-1
-  url: 
+  url: https://yyyyama.github.io/
 
 # Build settings
 permalink: /:year/:month/:day/:title.html
