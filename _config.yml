@@ -1,12 +1,13 @@
 # Site settings
-title: 闫肃的博客
+title: 小雅的博客
 email: suyan0830@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  闫肃的博客
+  春有百花秋有月 夏有凉风冬有雪
+  若无闲事挂心头 便是人间好时节
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: http://yansu.org # the base hostname & protocol for your site
+url: https://yyyyama.github.io/ # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
-author: Su Yan
+author: Xiao Ya
 
 # Sidebar filter
 # Choose 'tag' or 'category' as filter in sidebar.
@@ -14,24 +15,24 @@ filter: 'category'
 recent_num: 20
 
 # Social account
-twitter: suyan404
-weibo: suyan0830
-github: suyan
-instagram: suyan404
-linkedin: suyan404
+twitter: 
+weibo: 
+github: yyyyama
+instagram: 
+linkedin: 
 
 # avatar and Favicon
-avatar: http://7u2ho6.com1.z0.glb.clouddn.com/site-avatar.png
-favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+avatar: 
+favicon: 
 
 # disqus config
 disqus:
-  shortname: suyan-zh
+  shortname: xiaoya-zh
 
 # google analytics config
 ga:
   id: UA-54767140-1
-  url: yansu.org
+  url: 
 
 # Build settings
 permalink: /:year/:month/:day/:title.html
