@@ -22,8 +22,8 @@ instagram:
 linkedin: 
 
 # avatar and Favicon
-avatar: https://github.com/yyyyama/yyyyama.github.io/tree/master/assets/img/avatar.jpg
-favicon: https://github.com/yyyyama/yyyyama.github.io/tree/master/assets/img/site-favicon.jpg
+avatar: https://yyyyama.github.io/assets/img/avatar.jpg
+favicon: https://yyyyama.github.io/assets/img/site-favicon.jpg
 
 # disqus config
 disqus:
