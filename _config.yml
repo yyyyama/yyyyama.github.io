@@ -26,8 +26,8 @@ avatar: https://yyyyama.github.io/assets/img/avatar.jpg
 favicon: https://yyyyama.github.io/assets/img/site-favicon.jpg
 
 # disqus config
-disqus:
-  shortname: xiaoya-zh
+# disqus:
+#  shortname: xiaoya-zh
 
 # google analytics config
 ga:
