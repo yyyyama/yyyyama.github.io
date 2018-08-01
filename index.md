@@ -1,5 +1,5 @@
 ---
-title: 做一个快乐的人吧
+title: blog
 layout: post
 ---
 
