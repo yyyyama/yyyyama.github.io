@@ -9,23 +9,16 @@ description: github在线编辑的一些用法
 ## 添加图片
 
 添加github仓库代码里面的图片<br>
-![](https://yyyyama.github.io/assets/img/avatar.jpg)<br>
+![](https://yyyyama.github.io/assets/img/site-favicon.jpg)<br>
+```html
+  ![](https://yyyyama.github.io/assets/img/site-favicon.jpg)
+```
 
 添加来源于网络上面的图片
 ![](http://www.baidu.com/img/bdlogo.gif)<br>
-
-在方括号内可以加入一些标志性的信息<br>
-比如<br>
-![baidu](http://www.baidu.com/img/bdlogo.gif)
-还可以
-![baidu](http://www.baidu.com/img/bdlogo.gif “百度LOGO”)
-
-这个时候鼠标放到图片上面会有 “百度LOGO”这4个字。<br>
-
-给图片加上超链接<br>
-
-[![baidu]](http://baidu.com)[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo"
-
+```html
+  ![](http://www.baidu.com/img/bdlogo.gif)
+```
 
 ## 插入标题
 #一级标题  
@@ -40,15 +33,21 @@ description: github在线编辑的一些用法
 
 ## 文字超链接
 [我的博客](https://yyyyama.github.io)
+```html
+[我的博客](https://yyyyama.github.io)
+```
 
 
 ## 插入代码片段
-我们需要在代码的上一行和下一行用``` 标记。<br>
-``` 不是三个单引号，而是数字1左边，Tab键上面的键。<br>
-要实现语法高亮那么只要在 ``` 之后加上你的编程语言即可（忽略大小写）。<br>
+我们需要在代码的上一行和下一行用 符号 标记。<br>
+
+不是三个单引号，而是数字1左边，Tab键上面的键。<br>
+要实现语法高亮那么只要在之后加上你的编程语言即可（忽略大小写）。<br>
 c++语言可以写成c++也可以是cpp。看代码：<br>
 
 ```css
+~~~符号
+
 .box {
   display: flex;
 }
