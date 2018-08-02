@@ -9,9 +9,9 @@ description: github在线编辑的一些用法
 ## 添加图片
 
 添加github仓库代码里面的图片<br>
-![](https://yyyyama.github.io/assets/img/site-favicon.jpg)<br>
+![](https://yyyyama.github.io/assets/img/avatar.jpg)<br>
 ```html
-  ![](https://yyyyama.github.io/assets/img/site-favicon.jpg)
+  ![](https://yyyyama.github.io/assets/img/avatar.jpg)
 ```
 
 添加来源于网络上面的图片
@@ -46,8 +46,7 @@ description: github在线编辑的一些用法
 c++语言可以写成c++也可以是cpp。看代码：<br>
 
 ```css
-~~~符号
-
+```符号
 .box {
   display: flex;
 }
