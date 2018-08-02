@@ -30,6 +30,9 @@ description: github在线编辑的一些用法
 
 ## 换行
 <br>
+```html
+<br>
+```
 
 ## 文字超链接
 [我的博客](https://yyyyama.github.io)
