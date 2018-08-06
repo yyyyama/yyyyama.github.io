@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 房思琪的初恋乐园
-category: 读书
+category: 电影杂书
 keywords: 阅读,书单,2018
 ---
 
