@@ -1,0 +1,260 @@
+---
+layout: post
+title: 多个计数器在Vuex中的状态
+category: 技术
+tags: vuex
+description: vue-cli,vuex store存储
+---
+
+## 安装
+
+安装vue-cli
+    npm i -g vue-cli
+
+生成目录
+    vue init webpack <project>
+
+启动开发环境
+    npm run dev
+        
+        
+##启动命令
+
+npm install -g vue-cli
+
+vue init webpack project-vue
+
+cd project-vue
+
+npm run dev
+
+
+## vue-cli 单文件组件
+
+使用组件三部曲：引入组件、注册组件、使用组件
+
+引入组件：import Hello from './components/hello'
+
+注册组件：
+components: {
+      Hello:Hello
+  }
+
+使用组件： <hello></hello>
+
+##Vuex
+.集中式存储管理状态
+2.一种可预测的方式发生变化
+
+状态
+        组件内部转态: 仅在一个组件内使用的状态(data字段)
+        应用级别状态: 多个组件公用的状态
+
+什么情况下使用Vuex
+        1.多个视图依赖于同一状态
+        2.来自不同视图的行为需要变更同一状态
+
+
+安装Vuex
+npm i vuex --save
+
+在src文件夹下面创建stroe文件夹,
+然后再store文件夹下面创建index,js文件,
+在index.js引入组件
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+作为插件使用
+Vue.use(Vuex)
+
+然后main.js 里面注入根实例
+注入根实例
+{
+    store
+}
+
+将store在组件中使用
+在store文件夹的index.js定义一个状态
+
+
+html```
+let store = new Vuex.Store({
+	//定义应用的单一状态书,用一个对象就包含了全部的应用层级转态
+	state: {
+		count: 110		//定义一个状态
+	}
+})
+  
+```
+在组件里面使用状态,有两种方法
+html```
+<script>
+	export default {
+		//data 只能在本组件被改变
+		data() {
+			return {
+				n: this.$store.state.count	//n的初始值从vuex的state中拿
+			}
+		}
+	}
+</script>
+```
+或者
+html```
+<p>{{$store.state.count}}</p>
+```
+
+##更改状态
+
+mutation (修改状态的唯一途径): 要使改变状态可被记录,必须要commit 一个 mutation ; mutation 必须是同步更新状态.
+
+action (异步操作) : 异步操作产生结果 ; Action 提交的是 mutation ,而不是直接变更状态
+
+mutation更改状态
+
+在store中的index.js更改状态
+
+html```
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex);
+
+//定义store
+//vuex中的状态是响应的
+
+let store = new Vuex.Store({
+	state: {
+		count: 110		//定义一个状态
+	},
+	mutations: {
+		updatedCount(state, payload) {	//改变state状态
+			state.count += payload.add;
+		}
+	}
+})
+
+export default store
+```
+commit 提交更改
+html```
+<script>
+	export default {
+		methods: {
+			changeCount() {
+				this.$store.commit('updatedCount',{
+					add: 30
+				})
+			}
+		}
+	}
+</script>
+```
+
+getter ( 派分的状态 ) : 抽离操作状态的逻辑,可被多组件使用
+
+html```
+//getter(派发的状态): 抽离操作转态的逻辑,可被多组件使用
+	getters : {
+		totals(state){
+			//reduce 数组的方法
+			//reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值,0表示和初始值为0.
+			return state.shopList.reduce((n,item) => n + item.count,0)
+		}
+	}
+```
+
+action (异步操作) : 异步操作产生结果; Action 提交的是mutation,而不是直接变更状态
+
+html```
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex);
+
+//mock数据
+const shopList = [
+	{
+		id: 123,
+		count: 2,
+	},
+	{
+		id: 456,
+		count: 3
+	}
+]
+
+//定义store
+//vuex中的状态是响应的
+
+let store = new Vuex.Store({
+	//定义应用的单一状态书,用一个对象就包含了全部的应用层级转态
+	state: {
+		shopList		//定义一个状态
+	},
+
+	//getter(派发的状态): 抽离操作转态的逻辑,可被多组件使用
+	getters : {
+		totals(state){
+			//reduce 数组的方法
+			//reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值,0表示和初始值为0.
+			return state.shopList.reduce((n,item) => n + item.count,0)
+		}
+	},
+
+	//要使改变状态可被记录,必须要commit一个mutation; mutation必须是同步更新转态.
+	mutations: {
+		//只要提交mutation就有记录,如果mutation中有异步操作,记录的还是之前的值
+		updatedCountById(state,payload) {	//改变state状态
+			
+			/*setTimeout(() => {
+				let item = state.shopList.find(item => item.id == payload.id)
+				item.count += 1;
+			},3000);*/
+
+			let item = state.shopList.find(item => item.id == payload.id);
+			item.count += 1;
+			
+		},
+		reduceCountById(state,payload) {
+			let item = state.shopList.find(item => item.id == payload.id)
+			console.log(payload)
+			if(item.count <= 0 ){
+				alert('数量不能少于0');
+				return false;
+			}
+			item.count -=1;
+		}
+	},
+	actions: {
+		updateCountAction(store, parmas) {
+			//异步操作放在这里
+			setTimeout(() => {
+				store.commit('updatedCountById', parmas)
+			},1000)
+		}
+	}
+})
+
+export default store
+```
+
+## vuex 使用原则
+
+原则:
+1. 每个应用将仅仅包含一个store实例<br>
+2. 更改store中的状态的唯一方法是提交mutation<br>
+3. Mutation 必须是同步函数<br>
+4. Action 可以包含任意异步操作<br>
+5. Action 提交的是mutation,而不是直接更改状态<br>
+
+
+
+
+
+
+
+
+
+
+
