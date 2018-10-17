@@ -6,7 +6,7 @@ tags: artTemplate
 description: 
 ---
 
-前段时间接了一个兼职,在代码中引用了ArtTemplate模板引擎实现html代码的渲染,用ajax获取接口数据,然后用artTemplate把内容渲染出来,
+用ajax获取接口数据,然后用artTemplate把内容渲染出来,
 从某种意义上来说实现了前后端,对自己来说也是一种进步.
 <br/>
 当然在这过程中也遇到了难题,
@@ -28,7 +28,7 @@ var content = template('playlist',{
 $('#playlist-tpl').html(content);
 
 ```
-另一种更方法
+另一种方法
 ```html
 /*模板渲染*/
     	var data = json_data;
@@ -39,12 +39,11 @@ $('#playlist-tpl').html(content);
 另一个问题是,在接口获取的数据是有三位小数点的浮点数,在渲染的时候只显示两位小数点,不改变数据,只需要在显示是显示两位小数点
 
 解决方法
-设置过滤器
+
 ```js
+//设置过滤器
 template.defaults.imports.fixed = function(value) { return parseFloat(value).toFixed(2); }
-```
-然后在模板中过滤
-```js
+//然后在模板中过滤
 {{inform.data.r[0].odds_h | fixed}}
 ```
 
